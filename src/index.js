@@ -1,16 +1,20 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const routerApi = require('./routes/index')
-const app = express();
+const cors = require('cors');
+const routerApi = require('./routes/index');
+
 dotenv.config();
+
+const app = express();
 const PORT = process.env.PORT;
+
+app.use(express.json());
+app.use(cors());
 
 routerApi(app);
 
 app.get('/', (req, res) => {
-  res.send('Welcome')
+  res.send('Welcome');
 });
 
-app.listen(PORT, () => {
-  console.log(`API listening in: http://localhost:${PORT}`)
-});
+app.listen(PORT);
