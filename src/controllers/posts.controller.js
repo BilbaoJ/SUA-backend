@@ -71,12 +71,12 @@ const updatePost = async (req, res) => {
     });
     const data = await result.json();
     response.ok = true;
-    response.message = "Posts created successfully";
+    response.message = "Posts updated successfully";
     response.info = data;
     res.send(response);
   } catch (error) {
     response.ok = false;
-    response.message = "An error occurred creating the post";
+    response.message = "An error occurred updating the post";
     response.info = error.message;
     res.status(500).send(response);
   }
