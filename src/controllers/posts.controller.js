@@ -1,7 +1,9 @@
+const BASE_URL = process.env.BASE_URL;
+
 const readPosts = async (req, res) => {
     let response = {};
     try {
-      const result = await fetch('https://jsonplaceholder.typicode.com/posts');
+      const result = await fetch(`${BASE_URL}/posts`);
       const data = await result.json();
       response.ok = true;
       response.message = "Posts read successfully";
@@ -19,7 +21,7 @@ const readOnePost = async (req, res) => {
   let response = {};
   try {
     const { id } = req.params;
-    const result = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+    const result = await fetch(`${BASE_URL}/posts/${id}`);
     const data = await result.json();
     response.ok = true;
     response.message = "Post read successfully";
@@ -37,7 +39,7 @@ const createPost = async (req, res) => {
   let response = {};
   try {
     const info = req.body;
-    const result = await fetch('https://jsonplaceholder.typicode.com/posts/', {
+    const result = await fetch(`${BASE_URL}/posts/`, {
       method: 'POST',
       body: JSON.stringify(info),
       headers: {
@@ -46,7 +48,7 @@ const createPost = async (req, res) => {
     });
     const data = await result.json();
     response.ok = true;
-    response.message = "Posts created successfully";
+    response.message = "Post created successfully";
     response.info = data;
     res.send(response);
   } catch (error) {
@@ -62,7 +64,7 @@ const updatePost = async (req, res) => {
   try {
     const info = req.body;
     const { id } = req.params;
-    const result = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    const result = await fetch(`${BASE_URL}/posts/${id}`, {
       method: 'PUT',
       body: JSON.stringify(info),
       headers: {
@@ -71,7 +73,7 @@ const updatePost = async (req, res) => {
     });
     const data = await result.json();
     response.ok = true;
-    response.message = "Posts updated successfully";
+    response.message = "Post updated successfully";
     response.info = data;
     res.send(response);
   } catch (error) {
@@ -86,12 +88,12 @@ const deletePost = async (req, res) => {
   let response = {};
   try {
     const { id } = req.params;
-    const result = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    const result = await fetch(`${BASE_URL}/posts/${id}`, {
       method: 'DELETE',
     });
     const data = await result.json();
     response.ok = true;
-    response.message = "Posts deleted successfully";
+    response.message = "Post deleted successfully";
     response.info = data;
     res.send(response);
   } catch (error) {

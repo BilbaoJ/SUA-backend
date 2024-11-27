@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
-const TOKEN_EXPIRATION  = '1m';
+const TOKEN_EXPIRATION  = '5m';
 
 
 const createToken = (payload) => {
