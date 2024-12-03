@@ -3,7 +3,8 @@ const BASE_URL = process.env.BASE_URL;
 const readPosts = async (req, res) => {
     let response = {};
     try {
-      const result = await fetch(`${BASE_URL}/posts`);
+      const { id } = req.params;
+      const result = await fetch(`${BASE_URL}/users/${id}/posts`);
       const data = await result.json();
       response.ok = true;
       response.message = "Posts read successfully";

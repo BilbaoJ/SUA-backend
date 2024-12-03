@@ -44,7 +44,7 @@ npm run dev
 
 | Method | Endpoint      | Description              | Body                      |
 |--------|---------------|--------------------------|------------------------------------|
-| GET    | `/posts`      | Get all posts | -                            |
+| GET    | `/posts`      | Get all posts related to a user | `{"userId": 1}`                         |
 | GET    | `/posts/:id`  | Get a post by ID | -                            |
 | POST   | `/posts`      | Create a new post   | `{ "title": "New Post", "body": "body post", "userId": 1 }` |
 | PUT    | `/posts/:id`  | Update an existing post    | `{ "id": 1, "title": "New title", "body": "New body", "userId": 1, }` |

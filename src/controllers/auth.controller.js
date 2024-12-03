@@ -20,13 +20,13 @@ const login = async (req, res) => {
         response.ok = false;
         response.message = "Invalid username or password";
         response.info = null;
-        res.send(response);
+        res.status(401).send(response);
       }
     } else {
       response.ok = false;
       response.message = "invalid username or password";
       response.info = null;
-      res.send(response);
+      res.status(401).send(response);
     }
   } catch (error) {
     response.ok = false;

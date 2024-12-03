@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const postsController = require('../controllers/posts.controller')
 
-router.get('/', postsController.readPosts);
+router.get('/user/:id', postsController.readPosts);
 
 router.get('/:id', postsController.readOnePost);
 
